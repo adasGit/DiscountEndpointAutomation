@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Filename: testng.xml
+-->
+<!DOCTYPE suite SYSTEM "http://beust.com/testng/testng-1.0.dtd" >
+<suite name="Product_Discount_Test_Suite">
+    <test name="EndpointTesting">
+        <classes>
+            <class name="discount.test.Product_Discount_Test_Suite" />
+        </classes>
+    </test>
+</suite>
