@@ -6,12 +6,15 @@ import io.restassured.http.ContentType;
 import io.restassured.response.Response;
 
 
+/**
+ * This class is to manage access token
+ */
 public class Token {
     private String accessToken;
     private String refreshToken;
 
     public Token() {
-        this.accessToken = "eyJraWQiOiIxNDkwNTM4MzE5MzExIiwidHlwIjoiSldUIiwiYWxnIjoiUlMyNTYifQ.eyJpc3MiOiJpWmV0dGxlIiwiYXVkIjoiQVBJIiwiZXhwIjoxNDkwNjMzMzkwLCJzdWIiOiIxZjlhNjQyMC1mZjJhLTExZTYtOWM5OS1mOWQzNDNlMDNiOTQiLCJzY29wZSI6WyJBTEw6SU5URVJOQUwiLCJSRUFEOkZJTkFOQ0UiLCJSRUFEOlBST0RVQ1QiLCJSRUFEOlBVUkNIQVNFIiwiUkVBRDpVU0VSSU5GTyIsIldSSVRFOkZJTkFOQ0UiLCJXUklURTpQUk9EVUNUIiwiV1JJVEU6UFVSQ0hBU0UiLCJXUklURTpVU0VSSU5GTyJdLCJ1c2VyIjp7InVzZXJUeXBlIjoiVVNFUiIsInV1aWQiOiIxZjlhNjQyMC1mZjJhLTExZTYtOWM5OS1mOWQzNDNlMDNiOTQiLCJvcmdVdWlkIjoiMWY4NWYxYzAtZmYyYS0xMWU2LTlmZWEtZTgzMTQ2ZmIwODI4IiwidXNlclJvbGUiOiJPV05FUiJ9LCJjbGllbnRfaWQiOiIwYmI5MWUwMi03ZTUzLTQ3NDItOWJjYy03Mzg4ZDY5NGUxZmUifQ.S635vqM55hq_pU0R99e5FuC0bHIfQIPBkdWf1msXTnCiFSCg_QCjRAk_hyb777coJfasT0xSaCOoCchhwYcjGaj60EL7A1OpfjeM9GwUgGweqwLukMF0mSZeywVD762w7rRl0kMd2RBEvLvA6HTaXLyv9CpJ_1z-buFPS-BEuA6W2ASXZGFmpQaIOgEDCM7UUC2k9Nh0bsaYCfo388ZiS8GUmW29ncZ56BYabxoIExIA7zXKIH0kUagxtmns1sF3taPadZJfEm0XWYOojoih4jvPXQBoeDa_hTu84GuNl0vEToKsBbjRumjmRb8LGrybJYtTLaAcv0cXNqpef7Y7yA";
+        this.accessToken = "eyJraWQiOiIxNDkwNjc5MDQyNzE5IiwidHlwIjoiSldUIiwiYWxnIjoiUlMyNTYifQ.eyJpc3MiOiJpWmV0dGxlIiwiYXVkIjoiQVBJIiwiZXhwIjoxNDkwNzM3ODc4LCJzdWIiOiIxZjlhNjQyMC1mZjJhLTExZTYtOWM5OS1mOWQzNDNlMDNiOTQiLCJzY29wZSI6WyJBTEw6SU5URVJOQUwiLCJSRUFEOkZJTkFOQ0UiLCJSRUFEOlBST0RVQ1QiLCJSRUFEOlBVUkNIQVNFIiwiUkVBRDpVU0VSSU5GTyIsIldSSVRFOkZJTkFOQ0UiLCJXUklURTpQUk9EVUNUIiwiV1JJVEU6UFVSQ0hBU0UiLCJXUklURTpVU0VSSU5GTyJdLCJ1c2VyIjp7InVzZXJUeXBlIjoiVVNFUiIsInV1aWQiOiIxZjlhNjQyMC1mZjJhLTExZTYtOWM5OS1mOWQzNDNlMDNiOTQiLCJvcmdVdWlkIjoiMWY4NWYxYzAtZmYyYS0xMWU2LTlmZWEtZTgzMTQ2ZmIwODI4IiwidXNlclJvbGUiOiJPV05FUiJ9LCJjbGllbnRfaWQiOiIwYmI5MWUwMi03ZTUzLTQ3NDItOWJjYy03Mzg4ZDY5NGUxZmUifQ.f1TzyxJ8bqHevSEMTT5rNdEMnVk_h9sONzBsf2zc_z2Y-hvWjNFdP5MoriYbOJefLW2JCTHcU7DR0g6HUzTKyXwM9hXxRUDZyIjL8zd_1N86n74SRqlnXxIa7KdkENvAlNCOCno34iCVwZY9PTS5tIytsvPMx2na5oJVN852tknnTxCPwta0TMmspHjiWZkosF4Bz9aenTdQIm-13u55XyyIJ9gtQZ6k8UCIsOrJoKRhGQfqhE1ChBVf3-52iK7vz6g_NKhj2veJ6FQgSa9ve4MqsBII7FTiTJwvVphoHvojc9W14zVhO2mvHLd9NQPXg4Gpok6vvmc35u-TalfXOQ";
         this.refreshToken = "IZSECd6056e5c-2db1-4c3d-b912-5d30506d89fd";
     }
 
@@ -54,8 +57,8 @@ public class Token {
                 .then()
                 .extract().response();
 
-        System.out.println(res.headers());
-        System.out.println(res.header("WWW-Authenticate"));
+        //System.out.println(res.headers());
+        //System.out.println(res.header("WWW-Authenticate"));
         try {
             return (res.header("WWW-Authenticate").contains("EXPIRED")) ? true : false;
         }catch (NullPointerException e) {

@@ -1,5 +1,6 @@
 package discount.test;
 
+import discount.data.Discount;
 import discount.lib.Token;
 import discount.lib.Utils;
 import io.restassured.RestAssured;
@@ -7,6 +8,7 @@ import io.restassured.RestAssured;
 import static io.restassured.RestAssured.*;
 import io.restassured.http.ContentType;
 import io.restassured.response.Response;
+import org.apache.log4j.BasicConfigurator;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.testng.Assert;
@@ -16,27 +18,33 @@ import java.lang.reflect.Method;
 import java.util.ArrayList;
 
 
+//ToDo: Convert JSON to Java object
+//ToDo: Insert test data
+/**
+ * The test suite
+ */
 public class Product_Discount_Test_Suite {
     private static Logger logger = LoggerFactory.getLogger(Product_Discount_Test_Suite.class);
     private Utils utils;
     private Token token;
 
     @BeforeClass
-    public void setBaseUri() {
+    public void setUpClass() {
+        BasicConfigurator.configure();
         utils = new Utils();
         token = new Token();
-        RestAssured.reset();
-        RestAssured.baseURI = "https://products.izettletest.com";
-        RestAssured.basePath = "/organizations/1f85f1c0-ff2a-11e6-9fea-e83146fb0828";
     }
 
     @BeforeMethod
     public void setUp() {
         token.verifyToken();
+        RestAssured.reset();
+        RestAssured.baseURI = "https://products.izettletest.com";
+        RestAssured.basePath = "/organizations/1f85f1c0-ff2a-11e6-9fea-e83146fb0828";
     }
 
     @Test
-    public void test_Retrieve_All_Discount(Method method) {
+    public void test_Retrieve_All_Discounts(Method method) {
         logger.info("Test Name: " + method.getName());
         given()
                 .header("Authorization", "Bearer " + token.getAccessToken())
@@ -66,8 +74,9 @@ public class Product_Discount_Test_Suite {
 
         String value = given()
                 .header("Authorization", "Bearer " + token.getAccessToken())
+                .pathParam("uuid", res.get(0))
                 .when()
-                .get("/discounts/"+res.get(0))
+                .get("/discounts/{uuid}")
                 .then()
                 .contentType(ContentType.JSON)
                 .extract().path("percentage");
@@ -102,7 +111,33 @@ public class Product_Discount_Test_Suite {
     }
 
     @Test
-    public void test_Wrong_Credential_Response_Code() {
+    public void test_Wrong_Credential_Response_Code(Method method) {
+        logger.info("Test Name: " + method.getName());
+        given()
+                .header("Authorization", "Bearer eyJraWQiOiIxNDkwNTM4MzE5MzExIiwidH")
+                .when()
+                .get("/discounts")
+                .then().statusCode(401);
+    }
+
+    @Test
+    public void test_Create_Single_Discount_Entity(Method method) {
+        logger.info("Test Name: " + method.getName());
+        Discount discount = new Discount();
+        discount.setUuid(utils.generateUUID());
+        discount.setAmount(3,"");
+
+    }
+
+    @Test
+    public void test_Create_Duplicate_Discount_Entity(Method method) {
+        logger.info("Test Name: " + method.getName());
+
+    }
+
+    @Test
+    public void test_Duplicate_Discount_Entity_Exist(Method method) {
+        logger.info("Test Name: " + method.getName());
 
     }
 
