@@ -2,12 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="bde9d8a1-932b-4f58-8a1f-a2fa37ba6c69" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/DiscountEndpointTests.iml" afterPath="$PROJECT_DIR$/DiscountEndpointTests.iml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/test/java/discount/lib/DiscountWrapper.java" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/test/java/discount/data/Location.java" afterPath="" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/test/java/discount/data/Discount.java" afterPath="$PROJECT_DIR$/src/test/java/discount/lib/Discount.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/java/discount/test/Product_Discount_Test_Suite.java" afterPath="$PROJECT_DIR$/src/test/java/discount/test/Product_Discount_Test_Suite.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/java/discount/lib/Token.java" afterPath="$PROJECT_DIR$/src/test/java/discount/lib/Token.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/java/discount/lib/Utils.java" afterPath="$PROJECT_DIR$/src/test/java/discount/lib/Utils.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pom.xml" afterPath="$PROJECT_DIR$/pom.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/vcs.xml" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="DiscountEndpointTests.iws" />
@@ -45,8 +45,10 @@
         <entry file="file://$PROJECT_DIR$/src/test/java/discount/lib/Utils.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="4" column="0" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
-              <folding />
+              <caret line="5" column="0" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -55,7 +57,7 @@
         <entry file="file://$PROJECT_DIR$/src/test/java/discount/lib/Token.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="7" column="0" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
+              <caret line="16" column="0" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -64,10 +66,10 @@
         </entry>
       </file>
       <file leaf-file-name="Discount.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/test/java/discount/data/Discount.java">
+        <entry file="file://$PROJECT_DIR$/src/test/java/discount/lib/Discount.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="8" column="23" selection-start-line="8" selection-start-column="23" selection-end-line="8" selection-end-column="23" />
+              <caret line="9" column="13" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -75,24 +77,36 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Product_Discount_Test_Suite.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="DiscountWrapper.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/test/java/discount/lib/DiscountWrapper.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.29801324">
+              <caret line="8" column="27" selection-start-line="8" selection-start-column="27" selection-end-line="8" selection-end-column="27" />
+              <folding>
+                <element signature="e#253#254#0" expanded="true" />
+                <element signature="e#295#296#0" expanded="true" />
+                <element signature="e#344#345#0" expanded="true" />
+                <element signature="e#376#377#0" expanded="true" />
+                <element signature="e#439#440#0" expanded="true" />
+                <element signature="e#481#482#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Product_Discount_Test_Suite.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/test/java/discount/test/Product_Discount_Test_Suite.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-2.4513273">
-              <caret line="20" column="35" selection-start-line="20" selection-start-column="35" selection-end-line="20" selection-end-column="35" />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="150" column="0" selection-start-line="150" selection-start-column="0" selection-end-line="150" selection-end-column="0" />
               <folding>
                 <element signature="imports" expanded="true" />
+                <element signature="e#882#883#0" expanded="true" />
+                <element signature="e#906#907#0" expanded="true" />
+                <element signature="e#5404#5412#0" expanded="true" />
+                <element signature="e#6706#6714#0" expanded="true" />
+                <element signature="e#8170#8178#0" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Location.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/test/java/discount/data/Location.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="2" column="0" selection-start-line="2" selection-start-column="0" selection-end-line="4" selection-end-column="3" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -123,11 +137,15 @@
         <option value="$PROJECT_DIR$/src/test/java/discount/api/Call.java" />
         <option value="$PROJECT_DIR$/src/test/java/discount/api/Token.java" />
         <option value="$PROJECT_DIR$/pom.xml" />
-        <option value="$PROJECT_DIR$/src/test/java/discount/data/Discount.java" />
         <option value="$PROJECT_DIR$/src/test/java/discount/data/Location.java" />
+        <option value="$PROJECT_DIR$/src/test/java/discount/lib/Utils.java" />
+        <option value="$PROJECT_DIR$/src/test/java/discount/data/ForwardWrapper.java" />
+        <option value="$PROJECT_DIR$/src/test/java/discount/data/DiscountWrapper.java" />
+        <option value="$PROJECT_DIR$/src/test/java/discount/data/Discount.java" />
         <option value="$PROJECT_DIR$/src/test/java/discount/lib/Token.java" />
         <option value="$PROJECT_DIR$/src/test/java/discount/test/Product_Discount_Test_Suite.java" />
-        <option value="$PROJECT_DIR$/src/test/java/discount/lib/Utils.java" />
+        <option value="$PROJECT_DIR$/src/test/java/discount/lib/Discount.java" />
+        <option value="$PROJECT_DIR$/src/test/java/discount/lib/DiscountWrapper.java" />
       </list>
     </option>
   </component>
@@ -313,36 +331,6 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="test" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="discount" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="data" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="DiscountEndpointTests" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="DiscountEndpointTests" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
               <option name="myItemId" value="main" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -365,9 +353,12 @@
       <recent name="$PROJECT_DIR$" />
       <recent name="$PROJECT_DIR$/src/test/java/discount" />
     </key>
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="discount.lib" />
+    </key>
   </component>
-  <component name="RunManager" selected="TestNG.Product_Discount_Test_Suite.test_Create_Single_Discount_Entity">
-    <configuration default="false" name="Product_Discount_Test_Suite.test_Retrieve_All_Discount" type="TestNG" factoryName="TestNG" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="TestNG.Product_Discount_Test_Suite.test_Create_Multiple_Discount_Entity_At_Once">
+    <configuration default="false" name="Product_Discount_Test_Suite.test_Retrieve_All_Discounts" type="TestNG" factoryName="TestNG" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
         <pattern>
           <option name="PATTERN" value="discount.test.*" />
@@ -380,7 +371,7 @@
       <option name="SUITE_NAME" />
       <option name="PACKAGE_NAME" value="discount.test" />
       <option name="MAIN_CLASS_NAME" value="discount.test.Product_Discount_Test_Suite" />
-      <option name="METHOD_NAME" value="test_Retrieve_All_Discount" />
+      <option name="METHOD_NAME" value="test_Retrieve_All_Discounts" />
       <option name="GROUP_NAME" />
       <option name="TEST_OBJECT" value="METHOD" />
       <option name="VM_PARAMETERS" value="-ea" />
@@ -399,11 +390,11 @@
       <properties />
       <listeners />
       <RunnerSettings RunnerId="Debug">
-        <option name="DEBUG_PORT" value="56583" />
+        <option name="DEBUG_PORT" value="59901" />
       </RunnerSettings>
       <method />
     </configuration>
-    <configuration default="false" name="Product_Discount_Test_Suite.test_Invalid_Token_Error_Message" type="TestNG" factoryName="TestNG" temporary="true" nameIsGenerated="true">
+    <configuration default="false" name="Product_Discount_Test_Suite.test_Create_Multiple_Discount_Entity_At_Once" type="TestNG" factoryName="TestNG" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
         <pattern>
           <option name="PATTERN" value="discount.test.*" />
@@ -416,7 +407,7 @@
       <option name="SUITE_NAME" />
       <option name="PACKAGE_NAME" value="discount.test" />
       <option name="MAIN_CLASS_NAME" value="discount.test.Product_Discount_Test_Suite" />
-      <option name="METHOD_NAME" value="test_Invalid_Token_Error_Message" />
+      <option name="METHOD_NAME" value="test_Create_Multiple_Discount_Entity_At_Once" />
       <option name="GROUP_NAME" />
       <option name="TEST_OBJECT" value="METHOD" />
       <option name="VM_PARAMETERS" value="-ea" />
@@ -435,11 +426,11 @@
       <properties />
       <listeners />
       <RunnerSettings RunnerId="Debug">
-        <option name="DEBUG_PORT" value="58375" />
+        <option name="DEBUG_PORT" value="60165" />
       </RunnerSettings>
       <method />
     </configuration>
-    <configuration default="false" name="Product_Discount_Test_Suite.test_Expired_Token_Error_Message" type="TestNG" factoryName="TestNG" temporary="true" nameIsGenerated="true">
+    <configuration default="false" name="Product_Discount_Test_Suite.test_Retrieve_Single_Discount" type="TestNG" factoryName="TestNG" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
         <pattern>
           <option name="PATTERN" value="discount.test.*" />
@@ -452,7 +443,7 @@
       <option name="SUITE_NAME" />
       <option name="PACKAGE_NAME" value="discount.test" />
       <option name="MAIN_CLASS_NAME" value="discount.test.Product_Discount_Test_Suite" />
-      <option name="METHOD_NAME" value="test_Expired_Token_Error_Message" />
+      <option name="METHOD_NAME" value="test_Retrieve_Single_Discount" />
       <option name="GROUP_NAME" />
       <option name="TEST_OBJECT" value="METHOD" />
       <option name="VM_PARAMETERS" value="-ea" />
@@ -472,7 +463,7 @@
       <listeners />
       <method />
     </configuration>
-    <configuration default="false" name="Product_Discount_Test_Suite.test_Wrong_Credential_Response_Code" type="TestNG" factoryName="TestNG" temporary="true" nameIsGenerated="true">
+    <configuration default="false" name="Product_Discount_Test_Suite.test_Create_Single_Discount_Location" type="TestNG" factoryName="TestNG" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
         <pattern>
           <option name="PATTERN" value="discount.test.*" />
@@ -485,43 +476,7 @@
       <option name="SUITE_NAME" />
       <option name="PACKAGE_NAME" value="discount.test" />
       <option name="MAIN_CLASS_NAME" value="discount.test.Product_Discount_Test_Suite" />
-      <option name="METHOD_NAME" value="test_Wrong_Credential_Response_Code" />
-      <option name="GROUP_NAME" />
-      <option name="TEST_OBJECT" value="METHOD" />
-      <option name="VM_PARAMETERS" value="-ea" />
-      <option name="PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="OUTPUT_DIRECTORY" />
-      <option name="ANNOTATION_TYPE" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="TEST_SEARCH_SCOPE">
-        <value defaultName="singleModule" />
-      </option>
-      <option name="USE_DEFAULT_REPORTERS" value="false" />
-      <option name="PROPERTIES_FILE" />
-      <envs />
-      <properties />
-      <listeners />
-      <RunnerSettings RunnerId="Debug">
-        <option name="DEBUG_PORT" value="65172" />
-      </RunnerSettings>
-      <method />
-    </configuration>
-    <configuration default="false" name="Product_Discount_Test_Suite.test_Create_Single_Discount_Entity" type="TestNG" factoryName="TestNG" temporary="true" nameIsGenerated="true">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
-        <pattern>
-          <option name="PATTERN" value="discount.test.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <module name="DiscountEndpointTests" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="SUITE_NAME" />
-      <option name="PACKAGE_NAME" value="discount.test" />
-      <option name="MAIN_CLASS_NAME" value="discount.test.Product_Discount_Test_Suite" />
-      <option name="METHOD_NAME" value="test_Create_Single_Discount_Entity" />
+      <option name="METHOD_NAME" value="test_Create_Single_Discount_Location" />
       <option name="GROUP_NAME" />
       <option name="TEST_OBJECT" value="METHOD" />
       <option name="VM_PARAMETERS" value="-ea" />
@@ -540,8 +495,41 @@
       <properties />
       <listeners />
       <RunnerSettings RunnerId="Debug">
-        <option name="DEBUG_PORT" value="50133" />
+        <option name="DEBUG_PORT" value="60309" />
       </RunnerSettings>
+      <method />
+    </configuration>
+    <configuration default="false" name="Product_Discount_Test_Suite.test_Create_Discount_Entity_Using_Both_Percentage_And_Amount" type="TestNG" factoryName="TestNG" temporary="true" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
+        <pattern>
+          <option name="PATTERN" value="discount.test.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <module name="DiscountEndpointTests" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="SUITE_NAME" />
+      <option name="PACKAGE_NAME" value="discount.test" />
+      <option name="MAIN_CLASS_NAME" value="discount.test.Product_Discount_Test_Suite" />
+      <option name="METHOD_NAME" value="test_Create_Discount_Entity_Using_Both_Percentage_And_Amount" />
+      <option name="GROUP_NAME" />
+      <option name="TEST_OBJECT" value="METHOD" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="OUTPUT_DIRECTORY" />
+      <option name="ANNOTATION_TYPE" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <option name="USE_DEFAULT_REPORTERS" value="false" />
+      <option name="PROPERTIES_FILE" />
+      <envs />
+      <properties />
+      <listeners />
       <method />
     </configuration>
     <configuration default="true" type="#org.jetbrains.idea.devkit.run.PluginConfigurationType" factoryName="Plugin">
@@ -714,19 +702,19 @@
       <method />
     </configuration>
     <list size="5">
-      <item index="0" class="java.lang.String" itemvalue="TestNG.Product_Discount_Test_Suite.test_Retrieve_All_Discount" />
-      <item index="1" class="java.lang.String" itemvalue="TestNG.Product_Discount_Test_Suite.test_Invalid_Token_Error_Message" />
-      <item index="2" class="java.lang.String" itemvalue="TestNG.Product_Discount_Test_Suite.test_Expired_Token_Error_Message" />
-      <item index="3" class="java.lang.String" itemvalue="TestNG.Product_Discount_Test_Suite.test_Wrong_Credential_Response_Code" />
-      <item index="4" class="java.lang.String" itemvalue="TestNG.Product_Discount_Test_Suite.test_Create_Single_Discount_Entity" />
+      <item index="0" class="java.lang.String" itemvalue="TestNG.Product_Discount_Test_Suite.test_Retrieve_All_Discounts" />
+      <item index="1" class="java.lang.String" itemvalue="TestNG.Product_Discount_Test_Suite.test_Create_Multiple_Discount_Entity_At_Once" />
+      <item index="2" class="java.lang.String" itemvalue="TestNG.Product_Discount_Test_Suite.test_Retrieve_Single_Discount" />
+      <item index="3" class="java.lang.String" itemvalue="TestNG.Product_Discount_Test_Suite.test_Create_Single_Discount_Location" />
+      <item index="4" class="java.lang.String" itemvalue="TestNG.Product_Discount_Test_Suite.test_Create_Discount_Entity_Using_Both_Percentage_And_Amount" />
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="TestNG.Product_Discount_Test_Suite.test_Create_Single_Discount_Entity" />
-        <item index="1" class="java.lang.String" itemvalue="TestNG.Product_Discount_Test_Suite.test_Wrong_Credential_Response_Code" />
-        <item index="2" class="java.lang.String" itemvalue="TestNG.Product_Discount_Test_Suite.test_Expired_Token_Error_Message" />
-        <item index="3" class="java.lang.String" itemvalue="TestNG.Product_Discount_Test_Suite.test_Invalid_Token_Error_Message" />
-        <item index="4" class="java.lang.String" itemvalue="TestNG.Product_Discount_Test_Suite.test_Retrieve_All_Discount" />
+        <item index="0" class="java.lang.String" itemvalue="TestNG.Product_Discount_Test_Suite.test_Create_Multiple_Discount_Entity_At_Once" />
+        <item index="1" class="java.lang.String" itemvalue="TestNG.Product_Discount_Test_Suite.test_Create_Discount_Entity_Using_Both_Percentage_And_Amount" />
+        <item index="2" class="java.lang.String" itemvalue="TestNG.Product_Discount_Test_Suite.test_Create_Single_Discount_Location" />
+        <item index="3" class="java.lang.String" itemvalue="TestNG.Product_Discount_Test_Suite.test_Retrieve_All_Discounts" />
+        <item index="4" class="java.lang.String" itemvalue="TestNG.Product_Discount_Test_Suite.test_Retrieve_Single_Discount" />
       </list>
     </recent_temporary>
   </component>
@@ -753,18 +741,18 @@
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.226979" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.16882068" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4198988" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.44350758" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.19709209" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.23424879" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32715008" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.54468805" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32715008" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -785,7 +773,7 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="41" />
+      <option name="time" value="48" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -806,7 +794,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="9" column="5" selection-start-line="9" selection-start-column="5" selection-end-line="9" selection-end-column="5" />
-          <folding />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -826,11 +816,16 @@
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="e#882#883#0" expanded="true" />
+            <element signature="e#906#907#0" expanded="true" />
+            <element signature="e#5404#5412#0" expanded="true" />
+            <element signature="e#6706#6714#0" expanded="true" />
+            <element signature="e#8170#8178#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/discount/data/Discount.java">
+    <entry file="file://$PROJECT_DIR$/src/test/java/discount/lib/Discount.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="14" column="0" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
@@ -840,11 +835,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/discount/data/Location.java">
+    <entry file="file://$PROJECT_DIR$/src/test/java/discount/lib/DiscountWrapper.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="5" column="21" selection-start-line="5" selection-start-column="21" selection-end-line="5" selection-end-column="21" />
-          <folding />
+          <folding>
+            <element signature="e#253#254#0" expanded="true" />
+            <element signature="e#295#296#0" expanded="true" />
+            <element signature="e#344#345#0" expanded="true" />
+            <element signature="e#376#377#0" expanded="true" />
+            <element signature="e#439#440#0" expanded="true" />
+            <element signature="e#481#482#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -860,7 +862,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="5" column="17" selection-start-line="5" selection-start-column="17" selection-end-line="5" selection-end-column="17" />
-          <folding />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -880,6 +884,11 @@
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="e#882#883#0" expanded="true" />
+            <element signature="e#906#907#0" expanded="true" />
+            <element signature="e#5404#5412#0" expanded="true" />
+            <element signature="e#6706#6714#0" expanded="true" />
+            <element signature="e#8170#8178#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -908,6 +917,11 @@
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="e#882#883#0" expanded="true" />
+            <element signature="e#906#907#0" expanded="true" />
+            <element signature="e#5404#5412#0" expanded="true" />
+            <element signature="e#6706#6714#0" expanded="true" />
+            <element signature="e#8170#8178#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -926,6 +940,11 @@
           <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="e#882#883#0" expanded="true" />
+            <element signature="e#906#907#0" expanded="true" />
+            <element signature="e#5404#5412#0" expanded="true" />
+            <element signature="e#6706#6714#0" expanded="true" />
+            <element signature="e#8170#8178#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -944,6 +963,11 @@
           <caret line="10" column="0" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="e#882#883#0" expanded="true" />
+            <element signature="e#906#907#0" expanded="true" />
+            <element signature="e#5404#5412#0" expanded="true" />
+            <element signature="e#6706#6714#0" expanded="true" />
+            <element signature="e#8170#8178#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -962,6 +986,11 @@
           <caret line="10" column="0" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="e#882#883#0" expanded="true" />
+            <element signature="e#906#907#0" expanded="true" />
+            <element signature="e#5404#5412#0" expanded="true" />
+            <element signature="e#6706#6714#0" expanded="true" />
+            <element signature="e#8170#8178#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1012,48 +1041,62 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/discount/data/Location.java">
+    <entry file="file://$PROJECT_DIR$/src/test/java/discount/test/Product_Discount_Test_Suite.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="2" column="0" selection-start-line="2" selection-start-column="0" selection-end-line="4" selection-end-column="3" />
-          <folding />
+          <caret line="150" column="0" selection-start-line="150" selection-start-column="0" selection-end-line="150" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#882#883#0" expanded="true" />
+            <element signature="e#906#907#0" expanded="true" />
+            <element signature="e#5404#5412#0" expanded="true" />
+            <element signature="e#6706#6714#0" expanded="true" />
+            <element signature="e#8170#8178#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/discount/lib/Utils.java">
+    <entry file="file://$PROJECT_DIR$/src/test/java/discount/lib/Discount.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="4" column="0" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
-          <folding />
+          <caret line="9" column="13" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/discount/lib/Token.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="7" column="0" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
+          <caret line="16" column="0" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/discount/data/Discount.java">
+    <entry file="file://$PROJECT_DIR$/src/test/java/discount/lib/Utils.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="8" column="23" selection-start-line="8" selection-start-column="23" selection-end-line="8" selection-end-column="23" />
+          <caret line="5" column="0" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/discount/test/Product_Discount_Test_Suite.java">
+    <entry file="file://$PROJECT_DIR$/src/test/java/discount/lib/DiscountWrapper.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-2.4513273">
-          <caret line="20" column="35" selection-start-line="20" selection-start-column="35" selection-end-line="20" selection-end-column="35" />
+        <state vertical-scroll-proportion="0.29801324">
+          <caret line="8" column="27" selection-start-line="8" selection-start-column="27" selection-end-line="8" selection-end-column="27" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="e#253#254#0" expanded="true" />
+            <element signature="e#295#296#0" expanded="true" />
+            <element signature="e#344#345#0" expanded="true" />
+            <element signature="e#376#377#0" expanded="true" />
+            <element signature="e#439#440#0" expanded="true" />
+            <element signature="e#481#482#0" expanded="true" />
           </folding>
         </state>
       </provider>

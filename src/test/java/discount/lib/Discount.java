@@ -1,12 +1,13 @@
-package discount.data;
+package discount.lib;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
 /**
  * This class will allow to create Discount entities
  */
-public class Discount {
+public class Discount implements Serializable {
     private String uuid;
     private String name;
     private String description;
@@ -25,6 +26,12 @@ public class Discount {
     public void setImageLookupKeys(List<String> imageLookupKeys) { this.imageLookupKeys = imageLookupKeys; }
     public Amount getAmount() { return this.amount; }
     public void setAmount(int _amount, String _currencyId) { this.amount = new Amount(_amount, _currencyId); }
+    public void setAmount() { this.amount = null; }
+    public String getPercentage() { return this.percentage; }
+    public void setPercentage(String percentage) { this.percentage = percentage; }
+    public void setPercentage() { this.percentage = null; }
+    public String getExternalReference() { return this.externalReference; }
+    public void setExternalReference(String externalReference) { this.externalReference = externalReference; }
 }
 
 class Amount {
@@ -35,4 +42,9 @@ class Amount {
         this.amount = amount;
         this.currencyId = currencyId;
     }
+
+    public int getAmount() { return this.amount; }
+    public void setAmount(int _amount) { this.amount = _amount; }
+    public String getCurrencyId() { return this.currencyId; }
+    public void setCurrencyId(String _currencyId) { this.currencyId = _currencyId; }
 }
