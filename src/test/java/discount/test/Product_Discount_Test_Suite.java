@@ -7,6 +7,8 @@ import discount.lib.Utils;
 import io.restassured.RestAssured;
 
 import static io.restassured.RestAssured.*;
+
+import io.restassured.exception.PathException;
 import io.restassured.http.ContentType;
 import io.restassured.response.Response;
 import org.apache.log4j.BasicConfigurator;
@@ -18,6 +20,8 @@ import org.testng.annotations.*;
 import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.HashMap;
+import java.util.Map;
 
 
 /**
@@ -28,36 +32,102 @@ public class Product_Discount_Test_Suite {
     private Utils utils;
     private Token token;
 
-    private void insertTestData() {
-        //ToDo: Insert test data
-    }
+    Map<String,String> dictionary = new HashMap<>();
+    ArrayList<String> keys = new ArrayList<>();
+    int current = 0;
+    int extra = 0;
 
-    private int countEntities() {
-        return 0;
-    }
-
-    @BeforeClass
-    public void setUpClass() {
-        BasicConfigurator.configure();
-        utils = new Utils();
-        token = new Token();
-    }
-
-    @AfterClass
-    public void tearDownClass() {
-        //ToDo: Clean all the test data
-    }
-
-    @BeforeMethod
-    public void setUp() {
-        token.verifyToken();
+    private void setBasicUrl() {
         RestAssured.reset();
         RestAssured.baseURI = "https://products.izettletest.com";
         RestAssured.basePath = "/organizations/1f85f1c0-ff2a-11e6-9fea-e83146fb0828";
     }
 
+    /**
+     * Insert test data
+     */
+    private void insertTestData() {
+        Discount discount;
+        String uuid;
 
-    @Test
+        logger.info("Inserting test data ...");
+        setBasicUrl();
+        for (int i=0; i<3; i++) {
+            discount = new Discount();
+            uuid = utils.generateUUID();
+            discount.setUuid(uuid);
+            discount.setName(utils.generateString());
+            discount.setDescription("");
+            discount.setImageLookupKeys(Collections.<String>emptyList());
+            if(i%2 == 1) discount.setAmount(utils.generateDigits(), "SEK");
+            if(i%2 == 0) discount.setPercentage("100");
+            discount.setExternalReference(utils.generateString());
+
+            String location = given()
+                    .header("Authorization", "Bearer " + token.getAccessToken())
+                    .contentType(ContentType.JSON)
+                    .body(discount)
+                    .when()
+                    .post("/discounts")
+                    .then().statusCode(201).extract().header("Location");
+
+            extra++;
+            dictionary.put(uuid, location);
+            keys.add(uuid);
+        }
+    }
+
+    /**
+     * Count current discount entities
+     */
+    private int countEntities() {
+        int items = 0;
+        setBasicUrl();
+        try {
+            ArrayList<String> res = given()
+                    .header("Authorization", "Bearer " + token.getAccessToken())
+                    .when()
+                    .get("/discounts")
+                    .then()
+                    .extract().path("uuid");
+            items = res.size();
+        }catch (PathException ex) {
+            logger.info(ex.getMessage());
+        }
+        return items;
+    }
+
+    @BeforeClass
+    public void setUpClass() {
+        logger.info("Setting up test suite ...");
+        BasicConfigurator.configure();
+        setBasicUrl();
+        utils = new Utils();
+        token = new Token();
+        token.verifyToken();
+        current = countEntities();
+        insertTestData();
+    }
+
+    @AfterClass
+    public void tearDownClass() {
+        logger.info("Cleaning up test data ...");
+        try {
+            for (int i=0; i<keys.size(); i++) {
+                given()
+                        .header("Authorization", "Bearer " + token.getAccessToken())
+                        .pathParam("uuid", keys.get(i))
+                        .when()
+                        .delete("/discounts/{uuid}")
+                        .then().statusCode(204);
+            }
+        }catch (PathException ex) {
+            logger.info(ex.getMessage());
+        }
+    }
+
+
+    @Test(priority = 1)
     public void test_Retrieve_All_Discounts(Method method) {
         logger.info("Test Name: " + method.getName());
         given()
@@ -73,22 +143,15 @@ public class Product_Discount_Test_Suite {
                 .then()
                 .extract().path("uuid");
 
-        Assert.assertEquals(res.size(), 167, "Failed to retrieve all discounts!");
+        Assert.assertEquals(res.size(), current+extra, "Failed to retrieve all discounts!");
     }
 
-    @Test
+    @Test(priority = 2)
     public void test_Retrieve_Single_Discount(Method method) {
         logger.info("Test Name: " + method.getName());
-        ArrayList<String> res = given()
-                .header("Authorization", "Bearer " + token.getAccessToken())
-                .when()
-                .get("/discounts")
-                .then()
-                .extract().path("uuid");
-
         String value = given()
                 .header("Authorization", "Bearer " + token.getAccessToken())
-                .pathParam("uuid", res.get(0))
+                .pathParam("uuid", keys.get(0))
                 .when()
                 .get("/discounts/{uuid}")
                 .then()
@@ -97,21 +160,7 @@ public class Product_Discount_Test_Suite {
         Assert.assertEquals(value, "100", "Failed to retrieve a particular discount!");
     }
 
-
-    @Test
-    public void test_Token_Signature_Error_Message(Method method) {
-        logger.info("Test Name: " + method.getName());
-        Response res = given()
-                .header("Authorization", "Bearer " + token.getInvalidAccessToken())
-                .when()
-                .get("/discounts")
-                .then()
-                .extract().response();
-
-        Assert.assertTrue(res.header("WWW-Authenticate").contains("Could not verify signature!"));
-    }
-
-    @Test
+    @Test(priority = 3)
     public void test_Invalid_Token_Error_Message(Method method) {
         logger.info("Test Name: " + method.getName());
         Response res = given()
@@ -124,7 +173,7 @@ public class Product_Discount_Test_Suite {
         Assert.assertTrue(res.header("WWW-Authenticate").contains("The provided access token is invalid!"));
     }
 
-    @Test
+    @Test(priority = 4)
     public void test_Expired_Token_Error_Message(Method method) {
         logger.info("Test Name: " + method.getName());
         Response res = given()
@@ -137,7 +186,7 @@ public class Product_Discount_Test_Suite {
         Assert.assertTrue(res.header("WWW-Authenticate").contains("ACCESS_TOKEN_EXPIRED"));
     }
 
-    @Test
+    @Test(priority = 5)
     public void test_Credentials_Required_Error_Message(Method method) {
         logger.info("Test Name: " + method.getName());
         Response res = given()
@@ -149,7 +198,7 @@ public class Product_Discount_Test_Suite {
         Assert.assertTrue(res.asString().contains("Credentials are required"));
     }
 
-    @Test
+    @Test(priority = 6)
     public void test_Wrong_Credential_Response_Code(Method method) {
         logger.info("Test Name: " + method.getName());
         given()
@@ -159,7 +208,7 @@ public class Product_Discount_Test_Suite {
                 .then().statusCode(401);
     }
 
-    @Test
+    @Test(priority = 11)
     public void test_Create_Single_Discount_Location(Method method) {
         logger.info("Test Name: " + method.getName());
         Discount discount = new Discount();
@@ -191,10 +240,9 @@ public class Product_Discount_Test_Suite {
      * HTTP/1.1 400 Bad Request
      * "developerMessage":"Missing required creator property 'uuid' (index 0)"
      */
-    @Test
+    @Test(enabled = false)
     public void test_Create_Multiple_Discount_Entity_At_Once(Method method) {
         logger.info("Test Name: " + method.getName());
-
         Discount discount;
         ArrayList<Discount> discounts = new ArrayList<>();
 
@@ -204,7 +252,7 @@ public class Product_Discount_Test_Suite {
             discount.setName(utils.generateString());
             discount.setDescription("");
             discount.setImageLookupKeys(Collections.<String>emptyList());
-            discount.setAmount(200+i, "SEK");
+            discount.setAmount(utils.generateDigits(), "SEK");
             discount.setPercentage();
             discount.setExternalReference(utils.generateString());
 
@@ -212,7 +260,6 @@ public class Product_Discount_Test_Suite {
         }
 
         DiscountWrapper discountWrapper = new DiscountWrapper(discounts);
-
         given()
                 .header("Authorization", "Bearer " + token.getAccessToken())
                 .contentType(ContentType.JSON)
@@ -222,26 +269,89 @@ public class Product_Discount_Test_Suite {
                 .then().statusCode(201);
     }
 
-    @Test
+    @Test(priority = 10)
     public void test_Create_Duplicate_Discount_Entity(Method method) {
         logger.info("Test Name: " + method.getName());
+        Discount discount = new Discount();
+        discount.setUuid(keys.get(0));
+        discount.setName(utils.generateString());
+        discount.setDescription("");
+        discount.setImageLookupKeys(Collections.<String>emptyList());
+        discount.setAmount();
+        discount.setPercentage("25");
+        discount.setExternalReference(utils.generateString());
 
+        int count_before_post = countEntities();
+
+        given()
+                .header("Authorization", "Bearer " + token.getAccessToken())
+                .contentType(ContentType.JSON)
+                .body(discount)
+                .when()
+                .post("/discounts");
+
+        int count_after_post = countEntities();
+
+        Assert.assertEquals(count_before_post, count_after_post, "Should not create a duplicate entity!");
+    }
+
+    @Test(priority = 7)
+    public void test_Successful_Update_Of_Discount_Entity(Method method) {
+        logger.info("Test Name: " + method.getName());
+        Discount discount = new Discount();
+        discount.setUuid(keys.get(1));
+        discount.setName(utils.generateString());
+        discount.setDescription("");
+        discount.setImageLookupKeys(Collections.<String>emptyList());
+        discount.setAmount(100, "USD");
+        discount.setPercentage();
+        discount.setExternalReference(utils.generateString());
+
+        given()
+                .header("Authorization", "Bearer " + token.getAccessToken())
+                .contentType(ContentType.JSON)
+                .body(discount)
+                .pathParam("uuid", keys.get(1))
+                .when()
+                .put("/discounts/{uuid}")
+                .then().statusCode(204);
     }
 
     /**
      * "propertyName": "percentage"
      * "developerMessage": "must be less than or equal to 100"
      */
-    @Test
+    @Test(priority = 8)
     public void test_Percentage_Constraint_Violations(Method method) {
+        logger.info("Test Name: " + method.getName());
+        Discount discount = new Discount();
+        discount.setUuid(utils.generateUUID());
+        discount.setName(utils.generateString());
+        discount.setDescription("");
+        discount.setImageLookupKeys(Collections.<String>emptyList());
+        discount.setAmount();
+        discount.setPercentage("110");
+        discount.setExternalReference(utils.generateString());
 
+        String res = given()
+                .header("Authorization", "Bearer " + token.getAccessToken())
+                .contentType(ContentType.JSON)
+                .body(discount)
+                .when()
+                .post("/discounts")
+                .then()
+                .statusCode(422)
+                .extract()
+                .response().path("developerMessage");
+
+        Assert.assertTrue(res.contains("constraint violations"), "Failed to restrict 'Percentage' constraint violation!!");
     }
 
     /**
      * "propertyName": "specifiedAmountOrPercentage"
      * "developerMessage": "Discounts must have either amount or percentage"
      */
-    @Test
+    @Test(priority = 9)
     public void test_Create_Discount_Entity_Using_Both_Percentage_And_Amount(Method method) {
         logger.info("Test Name: " + method.getName());
         Discount discount = new Discount();
@@ -249,17 +359,22 @@ public class Product_Discount_Test_Suite {
         discount.setName(utils.generateString());
         discount.setDescription("");
         discount.setImageLookupKeys(Collections.<String>emptyList());
-        discount.setAmount(333, "USD");
+        discount.setAmount(utils.generateDigits(), "USD");
         discount.setPercentage("20");
         discount.setExternalReference(utils.generateString());
 
-        given()
+        String res = given()
                 .header("Authorization", "Bearer " + token.getAccessToken())
                 .contentType(ContentType.JSON)
                 .body(discount)
                 .when()
                 .post("/discounts")
-                .then().statusCode(422);
+                .then()
+                .statusCode(422)
+                .extract()
+                .response().path("developerMessage");
+
+        Assert.assertTrue(res.contains("constraint violations"), "Failed to restrict Constraint Violation!!");
     }
 
 }
